@@ -7,7 +7,7 @@ Scaricare il web platform installer di Microsoft dal [sito](https://www.microsof
 Installare IIS Express (v10.0) cercandolo nel web platform installer
 
 ## 3. Installazione di PHP
-Installare, sempre tramite il web platform installer, PHP versione 5.6 (x86)
+Installare, sempre tramite il web platform installer, PHP versione 5.6 for ISS Express (x86)
 
 ## 4. Opzionale
 Il web platform dovrebbe aggiornare autonomamente il file di configurazione di IIS con PHP, ma a volte non succede.  
