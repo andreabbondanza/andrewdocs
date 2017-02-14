@@ -16,6 +16,8 @@ Nel caso seguire le seguenti istruzioni:
 
 __Nota__: Controllare tramite l'editor se ogni tag già esiste
 
+__Nota__: __ATTENZIONE ALLE PATH, SE IL SISTEMA E' A 32BIT O AVETE INSTALALTO IIS EXPRESS CON PHP A 64BIT, DOVETE RIMUOVERE L'X86__
+
 ### A. Aggiungere le pagine di default al server
 - Aprire il file applicationhost.config presente in __Documenti\IIS Express\config__
 - Aggiungere sotto il tag __defaultDocument__ il valore:
@@ -56,10 +58,17 @@ __Nota__: Controllare tramite l'editor se ogni tag già esiste
 - Aprire il file applicationhost.config presente in __Documenti\IIS Express\config__
 - Aggiungere sotto il tag __location__ -> __system.webServer__ -> __modules__
 ```xml
-<add name="PHP55_via_FastCGI" path="*.php" verb="GET,HEAD,POST,DELETE,PUT" modules="FastCgiModule" scriptProcessor="C:\Program Files (x86)\iis express\PHP\v5.6\php-cgi.exe" resourceType="Either" />
 <add name="FastCgiModule" lockItem="true" />
 ```
-### F. Aggiungere il modulo alla configurazione
+
+### G. Aggiungere l'handler
+- Aprire il file applicationhost.config presente in __Documenti\IIS Express\config__
+- Aggiungere sotto il tag __location__ -> __system.webServer__ -> __handlers__
+```xml
+<add name="PHP55_via_FastCGI" path="*.php" verb="GET,HEAD,POST,DELETE,PUT" modules="FastCgiModule" scriptProcessor="C:\Program Files (x86)\iis express\PHP\v5.6\php-cgi.exe" resourceType="Either" />
+```
+
+### G. Aggiungere il modulo alla configurazione
 - Aprire il file applicationhost.config presente in __Documenti\IIS Express\config__
 - Aggiungere sotto il tag __configSections__ -> __sectionGroup name="system.webServer"__
 ```xml
@@ -80,3 +89,10 @@ Come ultima cosa, inserire nel proprio __php.ini__ i seguenti comandi:
 xdebug.remote_autostart=1
 xdebug.remote_enable=1
 ```
+
+# Editor
+Come editor si consiglia __Visual Studio Code__, installarlo da [qui](https://code.visualstudio.com/)
+
+Per sfruttare al meglio VSCODE installare node.js da [qui](https://nodejs.org/)
+
+Una volta fatto scaricare l'estensione __IIS Express Executer__ da Visual Studio Code
